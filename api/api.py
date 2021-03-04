@@ -199,7 +199,7 @@ def verifyWrapper(req, trx_id=0):
 
         for item in raw_content:  # item is in type of dict
             instance = []
-            img1 = item["img1"];
+            img1 = item["img1"]
             img2 = item["img2"]
 
             validate_img1 = False
