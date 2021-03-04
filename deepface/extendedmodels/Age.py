@@ -16,6 +16,7 @@ elif tf_version == 2:
 	from tensorflow.keras.models import Model, Sequential
 	from tensorflow.keras.layers import Convolution2D, Flatten, Activation
 
+
 def loadModel():
 	
 	model = VGGFace.baseModel()
@@ -48,8 +49,7 @@ def loadModel():
 	age_model.load_weights(home+'/.deepface/weights/age_model_weights.h5')
 	
 	return age_model
-	
-	#--------------------------
+
 
 def findApparentAge(age_predictions):
 	output_indexes = np.array([i for i in range(0, 101)])

@@ -121,17 +121,16 @@ resp_obj = DeepFace.verify("img1.jpg", "img2.jpg", model_name = "Ensemble")
 df = DeepFace.find(img_path = "img1.jpg", db_path = "my_db", model_name = "Ensemble")
 ```
 
-**API** - [`Demo`](https://youtu.be/HeKCQ6U9XmI)
+**API** - [`Demo`]
 
-LightDeepFace serves an API as well. You can clone [`/api/api.py`](https://github.com/zigiiprens/lightdeepface/tree/master/api/api.py) and pass it to python command as an argument. This will get a rest service up. In this way, you can call lightdeepface from an external system such as mobile app or web.
+LightDeepFace serves an API as well. We used FastApi. You can clone [`/api/api2.py`](https://github.com/zigiiprens/lightdeepface/tree/master/api/api2.py) and pass it to python command as an argument. This will get a rest service up. In this way, you can call lightdeepface from an external system such as mobile app or web.
 
 ```
-python api.py
+python api/api2.py
 ```
 
-<p align="center"><img src="https://raw.githubusercontent.com/zigiiprens/lightdeepface/master/icon/lightdeepface-api.jpg" width="90%" height="90%"></p>
 
-The both face recognition and facial attribute analysis are covered in the API. You are expected to call these functions as http post methods. Service endpoints will be `http://127.0.0.1:5000/verify` for face recognition and `http://127.0.0.1:5000/analyze` for facial attribute analysis. You should pass input images as base64 encoded string in this case. [Here](https://github.com/zigiiprens/lightdeepface/tree/master/api), you can find a postman project.
+The both face recognition and facial attribute analysis are covered in the API. You are expected to call these functions as http post methods. Service endpoints will be `http://127.0.0.1:8888/verify` for face recognition and `http://127.0.0.1:8888/analyze` for facial attribute analysis. You should pass input images as base64 encoded string in this case. [Here](https://github.com/zigiiprens/lightdeepface/tree/master/api), you can find a postman project.
 
 **Face Detectors** - [`Demo`](https://youtu.be/GZ2p2hj2H5k)
 

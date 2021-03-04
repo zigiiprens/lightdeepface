@@ -25,7 +25,7 @@ def analysis(db_path, model_name, distance_metric, enable_face_analysis=True
     employees = []
     # check passed db folder exists
     if os.path.isdir(db_path) == True:
-        for r, d, f in os.walk(db_path):  # r=root, d=directories, f = files
+        for r, d, f in os.walk(db_path):  # r=index, d=directories, f = files
             for file in f:
                 if ('.jpg' in file):
                     # exact_path = os.path.join(r, file)
