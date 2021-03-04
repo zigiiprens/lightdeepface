@@ -97,7 +97,7 @@ def verify(img1_path, img2_path='', model_name='VGG-Face', distance_metric='cosi
     # --------------------------------
 
     if model_name == 'Ensemble':
-        model_names = ["VGG-Face", "Facenet", "OpenFace", "DeepFace"]
+        model_names = ["VGG-Face", "Facenet", "OpenFace", "DeepFace", "ArcFace"]
         metrics = ["cosine", "euclidean", "euclidean_l2"]
     else:
         model_names = []
@@ -232,7 +232,7 @@ def verify(img1_path, img2_path='', model_name='VGG-Face', distance_metric='cosi
                     "verified": verified
                     , "score": score
                     , "distance": ensemble_features
-                    , "model": ["VGG-Face", "Facenet", "OpenFace", "DeepFace"]
+                    , "model": ["VGG-Face", "Facenet", "OpenFace", "DeepFace", "ArcFace"]
                     , "similarity_metric": ["cosine", "euclidean", "euclidean_l2"]
                 }
 
@@ -534,7 +534,7 @@ def find(img_path, db_path, model_name='VGG-Face', distance_metric='cosine', mod
         # ---------------------------------------
 
         if model_name == 'Ensemble':
-            model_names = ['VGG-Face', 'Facenet', 'OpenFace', 'DeepFace']
+            model_names = ['VGG-Face', 'Facenet', 'OpenFace', 'DeepFace', 'ArcFace']
             metric_names = ['cosine', 'euclidean', 'euclidean_l2']
         elif model_name != 'Ensemble':
             model_names = []

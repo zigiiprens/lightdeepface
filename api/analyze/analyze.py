@@ -16,11 +16,11 @@ from analyze import *
 """TF version settings"""
 if tf_version == 1:
     config = tf.ConfigProto(device_count={'XLA_GPU': 0})
-    config.gpu_options.allow_growth = False
+    config.gpu_options.allow_growth = True
     config.gpu_options.per_process_gpu_memory_fraction = 0.5
     config.log_device_placement = False
     graph = tf.get_default_graph()
-    sess = tf.Session(config=config)
+    # sess_emotion = tf.Session(config=config)
 
 """Router settings"""
 routerAnalyze = APIRouter()
@@ -75,6 +75,7 @@ def analyzeWrapper(req, trx_id=0):
 
     # ---------------------------
 
+    # with tf.Session(config=config):
     # resp_obj = DeepFace.analyze(instances, actions=actions)
     resp_obj = DeepFace.analyze(instances, actions=actions, models=facial_attribute_models)
 

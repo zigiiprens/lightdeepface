@@ -15,11 +15,11 @@ from verify import vggface_model, facenet_model, openface_model, deepface_model,
 """TF version settings"""
 if tf_version == 1:
     config = tf.ConfigProto(device_count={'XLA_GPU': 0})
-    config.gpu_options.allow_growth = False
+    config.gpu_options.allow_growth = True
     config.gpu_options.per_process_gpu_memory_fraction = 0.5
     config.log_device_placement = False
     graph = tf.get_default_graph()
-    sess = tf.Session(config=config)
+    # sess_verification = tf.Session(config=config)
 
 """Router settings"""
 routerAnalyze = APIRouter()
@@ -109,6 +109,7 @@ def verifyWrapper(req_model, req_distance, req_images, trx_id=None):
 
     # --------------------------
 
+    # with tf.Session(config=config):
     if model_name == "VGG-Face":
         resp_obj = DeepFace.verify(instances, model_name=model_name, distance_metric=distance_metric,
                                    model=vggface_model)
@@ -129,10 +130,10 @@ def verifyWrapper(req_model, req_distance, req_images, trx_id=None):
                                    model=arcface_model)
     elif model_name == "Ensemble":
         models = {}
-        # models["VGG-Face"] = vggface_model
+        models["VGG-Face"] = vggface_model
         models["Facenet"] = facenet_model
-        # models["OpenFace"] = openface_model
-        # models["DeepFace"] = deepface_model
+        models["OpenFace"] = openface_model
+        models["DeepFace"] = deepface_model
         models["ArcFace"] = arcface_model
         resp_obj = DeepFace.verify(instances, model_name=model_name, model=models)
     else:
